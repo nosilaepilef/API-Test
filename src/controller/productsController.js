@@ -1,10 +1,11 @@
 const Api = require("../services/api")
+const generateFile = require("../services/excel")
 
 module.exports = {
-  async show(request, response) {
-    const {ref} = request.params
-    const products = await Api.get(`/products/ref/${ref}`)
-    return response.status(200).json(products.data)
+  async index(request, response) {
+    const products = await Api.get(`/products/allResults`)
+    generateFile(products.data.products)
+    return response.status(200).json({message: "Planilha gerada com sucesso!"})
   },
 
   async update(request, response) {

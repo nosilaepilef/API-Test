@@ -10,7 +10,7 @@ Routers.put("/brands/:id", brandsController.update)
 Routers.delete("/brands/:id", brandsController.delete)
 
 
-Routers.get("/products/ref/:ref", productsController.show)
+Routers.get("/products/allResults", productsController.index)
 Routers.put("/products/update/:ref", productsController.update)
 
 module.exports = Routers
